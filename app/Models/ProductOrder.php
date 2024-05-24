@@ -1,8 +1,8 @@
 <?php
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class ProductOrder extends Model
 {
@@ -10,19 +10,17 @@ class ProductOrder extends Model
 
     protected $table = 'product_order';
 
-    protected $primaryKey = 'Order_item_id';
-
-    protected $fillable = [
-        'Product_id', 'Order_id', 'Quantity', 'Price'
-    ];
-
-    public function product()
-    {
-        return $this->belongsTo(Product::class, 'Product_id');
-    }
+    protected $fillable = ['order_id', 'product_id', 'Quantity', 'Price'];
 
     public function order()
     {
-        return $this->belongsTo(Order::class, 'Order_id');
+        return $this->belongsTo(Order::class);
     }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+  
 }

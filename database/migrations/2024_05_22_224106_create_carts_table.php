@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +14,7 @@ return new class extends Migration
             $table->id('Cart_item_id');
             $table->integer('Quantity');
             $table->foreignId('User_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('Product_id')->constrained('products')->onDelete('cascade');
+            $table->foreignId('Product_id')->constrained('products')->onDelete('cascade'); // Correct foreign key reference
             $table->timestamps();
         });
     }
